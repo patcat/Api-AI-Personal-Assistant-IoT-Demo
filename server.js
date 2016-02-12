@@ -8,8 +8,8 @@ var express = require("express"),
     JawboneStrategy = require("passport-oauth").OAuth2Strategy,
     port = 5000,
     jawboneAuth = {
-      clientID: "jUvu1_4u_mA",
-      clientSecret: "8961265d16ac678948006c2944ed85dbeeaab547",
+      clientID: "YOUR_CLIENT_ID",
+      clientSecret: "YOUR_CLIENT_SECRET",
       authorizationURL: "https://jawbone.com/auth/oauth2/auth",
       tokenURL: "https://jawbone.com/auth/oauth2/token",
       callbackURL: "https://localhost:5000/barry"
@@ -47,22 +47,11 @@ app.get("/sleep_data", function(req, resp) {
         var jawboneData = JSON.parse(body).data;
 
         if (jawboneData.items) {
-          for (var i = 0; i < jawboneData.items.length; i++) {
-            var date = jawboneData.items[i].date.toString(),
-              year = date.slice(0,4),
-              month = date.slice(4,6),
-              day = date.slice(6,8);
-
-
-            jawboneData.items[i].date = day + "/" + month + "/" + year;
-            jawboneData.items[i].title = jawboneData.items[i].title.replace("for ", "");
-          }
+          resp.send(jawboneData);
         } else {
           console.log("Error: " + jawboneData);
           resp.send({"error": "Your sleep tracker isn't talking to me. Let's try logging in again."});
         }
-
-        resp.send(jawboneData);
       }
     });
   } else {
