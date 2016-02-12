@@ -1,0 +1,22 @@
+{
+  "name": "ApiaiIoTDemo",
+  "version": "0.0.1",
+  "description": "A demo to show how to connect an Api.ai assistant to the IoT with Node.js and Jawbone Up's API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Patrick Catanzariti",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.3",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "jawbone-up": "^0.1.2",
+    "passport": "^0.2.1",
+    "passport-oauth": "^1.0.0",
+    "body-parser": "^1.15.0"
+  }
+}
